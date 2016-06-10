@@ -13,6 +13,16 @@ rails:
   links:
     - mysql
 
+nginx:
+  container_name: nginx
+  build: containers/nginx
+  ports:
+    - '80:80'
+  volumes_from:
+    - datastore
+  links:
+    - rails
+
 mysql:
   container_name: mysql
   image: mysql:5.6.30
